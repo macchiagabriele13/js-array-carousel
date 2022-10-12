@@ -67,19 +67,20 @@ nextButtonEl.addEventListener('click', function () {
     /*  const nextImage = document.querySelector('.slides > img.active')
      console.log(currentImage); */
 
-    const nextImage = slides[activeImage]
+    let nextImage = slides[activeImage]
     console.log(nextImage);
     
     /* Ciclo infinito */
 
     if (activeImage > images.length -1) {
         activeImage = 0
-        nextImage.classList.add('active')
-    } else {
+        nextImage = slides[activeImage]
+    
+        
+    } 
 
-    }
     /* Aggiungo classe active */
-  /*   nextImage.classList.add('active') */
+    nextImage.classList.add('active')
     
 })
 
@@ -104,18 +105,16 @@ prevButtonEl.addEventListener('click', function () {
     const nextImage = slides[activeImage]
     console.log(nextImage);
 
+
+    if (activeImage <= 0) {
+        activeImage = images.length - 1 
+        nextImage = slides[activeImage]
+    
+    } 
+
     /* Aggiungo classe active */
     nextImage.classList.add('active')
 
-
-    /* Ciclo infinito */
-
-    if (nextImage > images.length) {
-        nextImage = slides
-
-    } else {
-
-    }
 
 })
 
