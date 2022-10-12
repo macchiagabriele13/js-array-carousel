@@ -49,7 +49,12 @@ nextButtonEl.addEventListener('click', function () {
     console.log("next");
 
     /* Seleziono immagine corrente attiva */
-    const currentImage = document.querySelector('.slides > img.active')
+    /* const currentImage = document.querySelector('.slides > img.active')
+    console.log(currentImage); */
+
+    /* Selezione con query selector all */
+    const slides = document.querySelectorAll('.slides > img')
+    const currentImage = slides[activeImage]
     console.log(currentImage);
 
     /* Tolgo classe active */
@@ -59,25 +64,61 @@ nextButtonEl.addEventListener('click', function () {
     activeImage++
 
     /* Seleziono nuova immagine */
-    const nextImage = document.querySelector('.slides > img.active')
-    console.log(currentImage);
+    /*  const nextImage = document.querySelector('.slides > img.active')
+     console.log(currentImage); */
 
+    const nextImage = slides[activeImage]
+    console.log(nextImage);
+    
+    /* Ciclo infinito */
 
-    /* const nextImage = images[activeImage]
-    console.log(nextImage); */
+    if (activeImage > images.length -1) {
+        activeImage = 0
+        nextImage.classList.add('active')
+    } else {
 
+    }
     /* Aggiungo classe active */
-    nextImage.classList.add('active')
+  /*   nextImage.classList.add('active') */
+    
 })
 
 prevButtonEl.addEventListener('click', function () {
     console.log("prev");
+
+    /* Selezione con query selector all */
+    const slides = document.querySelectorAll('.slides > img')
+    const currentImage = slides[activeImage]
+    console.log(currentImage);
+
+    /* Tolgo classe active */
+    currentImage.classList.remove("active")
+
+    /* Decremento immagine */
+    activeImage--
+
+    /* Seleziono nuova immagine */
+    /*  const nextImage = document.querySelector('.slides > img.active')
+    console.log(currentImage); */
+
+    const nextImage = slides[activeImage]
+    console.log(nextImage);
+
+    /* Aggiungo classe active */
+    nextImage.classList.add('active')
+
+
+    /* Ciclo infinito */
+
+    if (nextImage > images.length) {
+        nextImage = slides
+
+    } else {
+
+    }
+
 })
 
-
-
-
-/* Incremento valore i al click next */
 
 
 
