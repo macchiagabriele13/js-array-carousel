@@ -19,6 +19,15 @@ let activeImage = 0
 
 for (let i = 0; i < images.length; i++) {
     const singleImage = images[i];
+
+    /* let imageMarkup; 
+    if (i === activeImage) {
+       imageMarkup = `<img class="active" src="${singleImage}" alt="">`
+    } else {
+        imageMarkup = `<img class="" src="${singleImage}" alt="">`
+        
+    } */
+
     const imageMarkup = `<img class="${i === activeImage ? 'active' : '' }" src="${singleImage}" alt="">`
 
     slidesEl.insertAdjacentHTML("beforeend", imageMarkup)
@@ -38,12 +47,28 @@ const prevButtonEl = document.querySelector(".prev")
 
 nextButtonEl. addEventListener('click', function () {
     console.log("next");  
+
+ /* Seleziono immagine corrente attiva */
+const currentImage = document.querySelector('.slides > img.active')
+console.log(currentImage);
+
+/* Tolgo classe active */
+currentImage.classList.remove(".active")
+
+/* Incremento immagine */
+activeImage++
+
+/* Aggiungo classe active alla nuova immagine */
 })
 
 prevButtonEl. addEventListener('click', function () {
     console.log("prev");  
 })
 
+
+
+
+/* Incremento valore i al click next */
 
 
 
