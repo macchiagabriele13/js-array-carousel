@@ -28,10 +28,10 @@ for (let i = 0; i < images.length; i++) {
         
     } */
 
-    const imageMarkup = `<img class="${i === activeImage ? 'active' : '' }" src="${singleImage}" alt="">`
+    const imageMarkup = `<img class="${i === activeImage ? 'active' : ''}" src="${singleImage}" alt="">`
 
     slidesEl.insertAdjacentHTML("beforeend", imageMarkup)
-    
+
 }
 
 /* Creo la variabile per definire active e la posiziono sopra il ciclo */
@@ -45,24 +45,33 @@ const prevButtonEl = document.querySelector(".prev")
 
 /* Creo click bottone */
 
-nextButtonEl. addEventListener('click', function () {
-    console.log("next");  
+nextButtonEl.addEventListener('click', function () {
+    console.log("next");
 
- /* Seleziono immagine corrente attiva */
-const currentImage = document.querySelector('.slides > img.active')
-console.log(currentImage);
+    /* Seleziono immagine corrente attiva */
+    const currentImage = document.querySelector('.slides > img.active')
+    console.log(currentImage);
 
-/* Tolgo classe active */
-currentImage.classList.remove(".active")
+    /* Tolgo classe active */
+    currentImage.classList.remove("active")
 
-/* Incremento immagine */
-activeImage++
+    /* Incremento immagine */
+    activeImage++
 
-/* Aggiungo classe active alla nuova immagine */
+    /* Seleziono nuova immagine */
+    const nextImage = document.querySelector('.slides > img.active')
+    console.log(currentImage);
+
+
+    /* const nextImage = images[activeImage]
+    console.log(nextImage); */
+
+    /* Aggiungo classe active */
+    nextImage.classList.add('active')
 })
 
-prevButtonEl. addEventListener('click', function () {
-    console.log("prev");  
+prevButtonEl.addEventListener('click', function () {
+    console.log("prev");
 })
 
 
